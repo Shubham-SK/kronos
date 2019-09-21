@@ -1,57 +1,49 @@
-from google.cloud import speech_v1
-from google.cloud.speech_v1 import enums
+# System
 import io
+import os
+import csv
 
+# Imports the Google Cloud client library
+from google.cloud import speech
+from google.cloud.speech import enums
+from google.cloud.speech import types
 
-def sample_recognize(local_file_path):
+def speech2text(file_name):
     """
-    Transcribe a short audio file using synchronous speech recognition
-    Args: local_file_path Path to local audio file, e.g. /path/audio.wav
-    Returns: Transcript
+    Transcribes speech data as text.
+    ________________________________
+    Args: Name of the wav file.
+    Returns: CSV file containing the speech data.
     """
+    # Instantiates a client
+    client = speech.SpeechClient()
 
-    client = speech_v1.SpeechClient()
+    # The name of the audio file to transcribe
+    file_name = os.path.join(
+        os.path.dirname(__file__),
+        file_name)
 
-    # The language of the supplied audio
-    language_code = "en-US"
+    # Loads the audio into memory
+    with io.open(file_name, 'rb') as audio_file:
+        content = audio_file.read()
+        audio = types.RecognitionAudio(content=content)
 
-    # Sample rate in Hertz of the audio data sent
-    sample_rate_hertz = 16000
+    # Optional for WAV files
+    config = types.RecognitionConfig(
+        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+        sample_rate_hertz=16000,
+        language_code='en-US')
 
-    # Encoding of audio data sent. This sample sets this explicitly.
-    # This field is optional for FLAC and WAV audio formats.
-    encoding = enums.RecognitionConfig.AudioEncoding.LINEAR16
-    config = {
-        "language_code": language_code,
-        "sample_rate_hertz": sample_rate_hertz,
-        "encoding": encoding,
-    }
-
-    with io.open(local_file_path, "rb") as f:
-        content = f.read()
-    audio = {"content": content}
-
+    # Detects speech in the audio file
     response = client.recognize(config, audio)
-    for result in response.results:
-        # First alternative is the most probable result
-        alternative = result.alternatives[0]
-        print(u"Transcript: {}".format(alternative.transcript))
 
+    # Testing print
+    # for result in response.results:
+        # print('Transcript: {}'.format(result.alternatives[0].transcript))
 
-# [END speech_transcribe_sync]
+    with open('data.csv', 'w') as writeFile:
+        writer = csv.writer(writeFile)
+        writer.writerows(text)
+    writeFile.close()
 
-
-def main():
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--local_file_path", type=str, default="resources/brooklyn_bridge.raw"
-    )
-    args = parser.parse_args()
-
-    sample_recognize(args.local_file_path)
-
-
-if __name__ == "__main__":
-    main()
+speech2text("pranav.wav")
