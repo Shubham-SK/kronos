@@ -1,18 +1,21 @@
 from flask import Flask, request, render_template
-import os
+import os, subprocess, time
 
 app = Flask(__name__)
 
+@app.route('/stop')
+def stop():
+    # mosquitto_pub -d -t omnihacks -m \"record\"
+    f_kill = subprocess.Popen(["python", "record_audio.py"])
+    return render_template("STOP.html")
+
 @app.route('/start')
 def start():
-    print("Hello World")
+    f_kill.terminate()
     return render_template("START.html")
     
 
-@app.route('/stop')
-def stop():
-    os.system("mosquitto_pub -d -t omnihacks -m \"record\"")
-    return render_template("STOP.html")
+
 
 @app.route('/')
 def index():
