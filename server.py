@@ -26,5 +26,10 @@ def button():
 def index():
     return render_template("home.html")
 
+<<<<<<< HEAD
 if __name__ == '__main__':
     app.run(debug=True)
+=======
+if __name__ == "__main__":
+    app.run(debug=True)
+>>>>>>> f9585d9827fba98d583e933dc194fe2f1329c7bc

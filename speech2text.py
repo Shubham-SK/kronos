@@ -13,7 +13,7 @@ def speech2text(file_name):
     Transcribes speech data as text.
     ________________________________
     Args: Name of the wav file.
-    Returns: CSV file containing the speech data.
+    Returns: array containing the speech data.
     """
     # Instantiates a client
     client = speech.SpeechClient()
@@ -33,7 +33,6 @@ def speech2text(file_name):
         encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=16000,
         language_code='en-US')
-
     # Detects speech in the audio file
     response = client.recognize(config, audio)
 
@@ -41,9 +40,9 @@ def speech2text(file_name):
     # for result in response.results:
         # print('Transcript: {}'.format(result.alternatives[0].transcript))
 
-    with open('data.csv', 'w') as writeFile:
-        writer = csv.writer(writeFile)
-        writer.writerows(text)
-    writeFile.close()
+    # Prepares the text as an array of words
+    text = "".join(response.results[0].alternatives[0].transcript).split(' ')
 
-speech2text("pranav.wav")
+    return(text)
+
+speech2text("doctor.wav")
