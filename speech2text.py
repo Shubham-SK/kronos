@@ -45,5 +45,4 @@ def speech2text(file_name):
 
     return(text)
 
-
-speech2text("pranav.wav")
+speech2text("doctor.wav")
