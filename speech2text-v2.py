@@ -2,7 +2,7 @@ from google.cloud import speech_v1p1beta1
 import io
 
 
-def sample_long_running_recognize(local_file_path):
+def speech2text(local_file_path):
     """
     Convert speech to text and identifies different speakers
     ________________________________

@@ -1,1 +1,1 @@
-from speech2text import speech2text
+from speech2text-v2 import speech2text
