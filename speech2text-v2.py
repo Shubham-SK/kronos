@@ -45,4 +45,4 @@ def speech2text(local_file_path):
             print(u"Word: {}".format(word.word))
             print(u"Speaker tag: {}".format(word.speaker_tag))
 
-sample_long_running_recognize("speech.wav")
+speech2text("speech.wav")
