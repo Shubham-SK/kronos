@@ -17,7 +17,7 @@ def speech2text(local_file_path):
     enable_speaker_diarization = True
 
     # Optional. Specifies the estimated number of speakers in the conversation.
-    diarization_speaker_count = 2
+    diarization_speaker_count = 3
 
     # The language of the supplied audio
     language_code = "en-US"
@@ -31,12 +31,14 @@ def speech2text(local_file_path):
     audio = {"content": content}
 
     operation = client.long_running_recognize(config, audio)
-
     response = operation.result()
-    print(len(response.results))
 
-    for result in response.results:
+    for (idx, result) in enumerate(response.results):
+        # Skipping first epoch
+        if idx == 0:
+            continue
         # First alternative has words tagged with speakers
+        # print(result)
         alternative = result.alternatives[0]
         print(u"Transcript: {}".format(alternative.transcript))
         # Print the speaker_tag of each word
@@ -44,4 +46,4 @@ def speech2text(local_file_path):
             print(u"Word: {}".format(word.word))
             print(u"Speaker tag: {}".format(word.speaker_tag))
 
-speech2text("speech.wav")
+speech2text("doctor.wav")
