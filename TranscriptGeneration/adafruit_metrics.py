@@ -13,11 +13,23 @@ DELAY_BETWEEN_PUBLISH = 120
 print(transcript_create.main())
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
+    """
+    Asserts connection
+    ________________________________
+    Args: client, userdata, flags, rc
+    Returns: connection state
+    """
     global connected
     print("Connected with result code "+str(rc))
     connected = True
 
 def on_disconnect(client, userdata, flags, rc):
+        """
+        Status while disconnecting
+        ________________________________
+        Args: client, userdata, flags, rc
+        Returns: disconnection state
+        """
     print("Disconnected with result code "+str(rc))
 
 logging.basicConfig()
