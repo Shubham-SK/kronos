@@ -18,7 +18,7 @@ def start():
     global blood_pressure, heart_rate
     # metrics = os.system("python TranscriptGeneration/transcript_create.py")
     metrics = transcript.main()
-    print(metrics)
+    print(type(metrics), len(metrics))
     blood_pressure = metrics[0]
     heart_rate = metrics[1]
     print("done generating transcript")

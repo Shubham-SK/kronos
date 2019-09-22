@@ -1,6 +1,7 @@
 TRANSCRIPT
 ___________
-Doctor: launch launch party
-Patient:  testing 1 2 3 I want to die log 30th blood pressure launch launch party
+Doctor: prescribed to milligrams of ibuprofen
+Patient:  sounds good
+Doctor:  pressure
 LOG
 ___________
