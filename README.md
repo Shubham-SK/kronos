@@ -18,7 +18,7 @@ python server.py
 Upon opening the link, you should see a greeting with your name and an option to start recording the patient-doctor conversation! When you're ready to start the checkup click record and make sure the doctor is first to speak.
 
 ### Hardware Required
-Raspberry Pi with a microphone (tuned Hz so Google speech API can extrapolate). We use a lightweight [MQTT](http://mqtt.org/) messaging protocol to transmit the recording file from the Pi to a webserver where the data will be parsed and distributed to the end user.
+Raspberry Pi with a microphone (tuned frequency so Google speech API can extrapolate). We use a lightweight [MQTT](http://mqtt.org/) messaging protocol to transmit the recording file from the Pi to a webserver where the data will be parsed and distributed to the end user.
 
 ___
 ### Parts of Our Project
