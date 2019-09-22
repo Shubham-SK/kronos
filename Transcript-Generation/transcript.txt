@@ -1,6 +1,6 @@
 TRANSCRIPT
 ___________
-Doctor: okay did you go take the medicine you'll become sick and then you will
-Patient:  log conversation medicine important
+Doctor: I'm prescribing 10 mg of alendronate and 5 mg of acetaminophen
+Patient:  that should work
 LOG
 ___________

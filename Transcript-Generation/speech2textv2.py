@@ -42,7 +42,7 @@ def speech2text(local_file_path):
         # First alternative has words tagged with speakers
         # print(result)
         alternative = result.alternatives[0]
-        print(u"Transcript: {}".format(alternative.transcript))
+        # print(u"Transcript: {}".format(alternative.transcript))
         # Print the speaker_tag of each word
         for word in alternative.words:
             # print(u"Word: {}".format(word.word))

@@ -1,8 +1,8 @@
 # Importing speech2text from prev definition
 from speech2textv2 import speech2text
 
-conversation_array = speech2text("doctor.wav") # testing with doctor.wav
-# print(conversation_array)
+conversation_array = speech2text("speech.wav") # testing with doctor.wav
+print(conversation_array)
 
 # Generating Transcript + Finding Key Words
 def transcript_gen(conversation_array):
@@ -10,7 +10,7 @@ def transcript_gen(conversation_array):
 	Void function that creates Transcript File
 	________________________________
 	Args: Conversation Array (2D ex: [["word", speaker_idx]])
-	Returns: transcripts.txt file
+	Returns: transcripts.txt file, blood_pressure, heart_rate
 	"""
 
 	# Final Transcript Intialization
@@ -48,10 +48,16 @@ def transcript_gen(conversation_array):
 		f.write('TRANSCRIPT')
 		f.write('\n___________')
 
+		bloodpres, heartrate = 0, 0
+
 		# Writing the transcript to file
 		for i in range(len(final)):
 			if(final[i].split(' ')[0] == "log"):
 				log.append(final[i])
+				if("blood pressure" in str(final[i].lower())):
+					bloodpres = re.findall(r'^[-+]?[0-9]+$', str)
+				elif("heart rate" in str(final[i].lower())):
+					heartrate = re.findall(r'^[-+]?[0-9]+$', str)
 			if(i % 2 == 0 ):
 				final[i] = "\nDoctor: " + final[i]
 				f.write(final[i])
@@ -65,5 +71,8 @@ def transcript_gen(conversation_array):
 		for i in range(len(log)):
 			f.write(log[i] + "\n")
 
+	return (bloodpres, heartrate)
+
 # Testing
-# transcript_gen(conversation_array)
+print(transcript_gen(conversation_array))
+# transcript_gen([['log', 0], ['blood', 0], ['pressure', 0 ], ['80', 0]])
