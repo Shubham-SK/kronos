@@ -1,25 +1,29 @@
-#Array of words ->
-def transcript_gen(convarr):
+# Importing speech2text from prev definition
+from speech2text-v2 import speech2text
+
+conversation_array = speech2text("doctor.wav") # testing with doctor.wav
+
+# Generating Transcript + Finding Key Words
+def transcript_gen(conversation_array):
 	final = []
 	string = ""
-	doc_num = convarr[0][1]
-	print(len(convarr))
-	for i in range(len(convarr)):
-		if(convarr[i][1] != doc_num):
-			 pat_num = convarr[i][1]
+	doc_num = conversation_array[0][1]
+	print(len(conversation_array))
+	for i in range(len(conversation_array)):
+		if(conversation_array[i][1] != doc_num):
+			 pat_num = conversation_array[i][1]
 	print(doc_num, pat_num)
 
-	for i in range(len(convarr)):
-		print(convarr[i][1])
-		if(i == 0 ):
-			string = convarr[0][0]
-		if(i != 0 and  convarr[i][1] == convarr[i-1][1]):
+	for i in range(len(conversation_array)):
+		print(conversation_array[i][1])
+		if(i == 0):
+			string = conversation_array[0][0]
+		if(i != 0 and  conversation_array[i][1] == conversation_array[i-1][1]):
 			string += " "
-			string += convarr[i][0]
-		if(i != 0 and convarr[i][1] != convarr[i-1][1]):
+			string += conversation_array[i][0]
+		if(i != 0 and conversation_array[i][1] != conversation_array[i-1][1]):
 			final.append(string)
 			string = ""
-	#log protocol -> special comments
 	log = []
 
 	final.append(string)
@@ -36,11 +40,8 @@ def transcript_gen(convarr):
 			if(i % 2 == 1):
 				final[i] = "\nPatient: " + final[i]
 				f.write(final[i])
-				
-		#log(special comments) at end
+
 		f.write('\nLOG')
 		f.write('\n___________')
 		for i in range(len(log)):
 			f.write(log[i])
-#call function
-#example data: convarr = [["I'm", 1], ['prescribing', 1], ['10', 1], ['mg', 1], ['of', 1], ['alendronate', 1], ['and', 1], ['5', 1], ['mg', 1], ['of', 1], ['acetaminophen', 1], ['excellent', 3], ['that', 3], ['should', 3], ['work', 3]]
