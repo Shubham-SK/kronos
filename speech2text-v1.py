@@ -8,6 +8,7 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+
 def speech2text(file_name):
     """
     Transcribes speech data as text.
@@ -42,7 +43,6 @@ def speech2text(file_name):
 
     # Prepares the text as an array of words
     text = "".join(response.results[0].alternatives[0].transcript).split(' ')
-
     return(text)
 
-speech2text("doctor.wav")
+speech2text("speech.wav")
