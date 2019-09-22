@@ -13,13 +13,10 @@ def stop():
 def start():
     os.system("python stopublish.py")
     return render_template("START.html")
-<<<<<<< HEAD
-=======
 
 @app.route('/blood-pres')
 def blood_pres():
     return redirect("http://io.adafruit.com/vishakh_arora29/feeds/blood-pressure")
->>>>>>> 07eb1f58ef935c0d1b98a485956cc4b27e725d50
 
 @app.route('/heart-rate')
 def heart_rate():
@@ -28,11 +25,6 @@ def heart_rate():
 @app.route('/')
 def index():
     return render_template("START.html")
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 07eb1f58ef935c0d1b98a485956cc4b27e725d50
 
 
 if __name__ == "__main__":
