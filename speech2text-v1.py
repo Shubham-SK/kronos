@@ -43,4 +43,4 @@ def speech2text(file_name):
 
     # Prepares the text as an array of words
     text = "".join(response.results[0].alternatives[0].transcript).split(' ')
-    return(text)
+    return text
