@@ -5,19 +5,6 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script type = "text/javascript">
-		window.onload = function(){
-			var iframe = document.createElement('iframe');
-			iframe.id = 'iframe';
-			iframe.style.display = 'none';
-			document.body.appendChild(iframe);
-			iframe.src = 'transcript.txt';
-			setTimeout(function(){
-					var text = document.getElementById('iframe').contentDocument.body.firstChild.innerHTML;
-					alert(text);
-			}, 1000);
-		}
-		</script>
 	</head>
 
 	<body>
@@ -56,7 +43,7 @@
 <form action="stop">
 
 <div style="text-align: center; margin-top: 30px;">
-		<button type="submit" class="btn btn-danger btn-lg">
+		<button type="submit" class="btn btn-danger btn-lg" action="start">
 			<i class="fa fa-microphone" aria-hidden="true"></i> <h6>Start Recording</h6>
 	        </button>
 </div>
@@ -103,17 +90,7 @@
 	  <label for="comment"><h4>Meeting Log:</h4></label>
 		<button type="button" onclick="loadDoc()">Change Content</button>
 		<script>
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "transcript.txt", true);
-  xhttp.send();
-}
+
 </script>
 </iframe>
 

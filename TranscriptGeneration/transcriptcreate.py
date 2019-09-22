@@ -1,8 +1,9 @@
 # Importing speech2text from prev definition
-from speech2textv2 import speech2text
+from .speech2textv2 import speech2text
 import os
 
-speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos", "new_doctor.wav")
+print("converting to transcript")
+speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos/TreeOverAte", "new_doctor.wav")
 
 conversation_array = speech2text(speech) # testing with doctor.wav
 # print(conversation_array)
@@ -76,7 +77,9 @@ def transcript_gen(conversation_array):
 
 	f.close()
 
-	return (bloodpres, heartrate)
+	metrics = [bloodpres, heartrate]
+	print(metrics)
+	# return metrics
 
 # Testing
 def main():
