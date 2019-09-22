@@ -11,7 +11,7 @@ print(doc_num, pat_num)
 
 for i in range(len(convarr)):
 	print(convarr[i][1])
-	if(i == 0 ):	
+	if(i == 0 ):
 		string = convarr[0][0]
 	if(i != 0 and  convarr[i][1] == convarr[i-1][1]):
 		string += " "
