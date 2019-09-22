@@ -1,5 +1,5 @@
 # Kronos
-A voice powered app
+A voice powered healthcare app for Omnihacks 2019.
 ___
 ### Usage
 Clone the repository, navigate to the server.py file. 
