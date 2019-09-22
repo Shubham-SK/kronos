@@ -13,16 +13,11 @@ def stop():
 def start():
     os.system("python stopublish.py")
     return render_template("START.html")
-    
-
 
 
 @app.route('/')
 def index():
-
-    return render_template("START.html")    
-
-  
+    return render_template("START.html")
 
 
 if __name__ == "__main__":
