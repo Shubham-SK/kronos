@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route('/stop')
 def stop():
     # mosquitto_pub -d -t omnihacks -m \"record\"
+    global f_kill
     f_kill = subprocess.Popen(["python", "record_audio.py"])
     return render_template("STOP.html")
 
