@@ -1,6 +1,5 @@
-
-#Array of words -> 
-def transcript_gen(convarr):	
+#Array of words ->
+def transcript_gen(convarr):
 	final = []
 	string = ""
 	doc_num = convarr[0][1]
@@ -10,32 +9,18 @@ def transcript_gen(convarr):
 			 pat_num = convarr[i][1]
 	print(doc_num, pat_num)
 
-<<<<<<< HEAD
-for i in range(len(convarr)):
-	print(convarr[i][1])
-	if(i == 0 ):
-		string = convarr[0][0]
-	if(i != 0 and  convarr[i][1] == convarr[i-1][1]):
-		string += " "
-		string += convarr[i][0]
-	if(i != 0 and convarr[i][1] != convarr[i-1][1]):
-		final.append(string)
-		string = ""	
-log = []
-=======
 	for i in range(len(convarr)):
 		print(convarr[i][1])
-		if(i == 0 ):	
+		if(i == 0 ):
 			string = convarr[0][0]
 		if(i != 0 and  convarr[i][1] == convarr[i-1][1]):
 			string += " "
 			string += convarr[i][0]
 		if(i != 0 and convarr[i][1] != convarr[i-1][1]):
 			final.append(string)
-			string = ""	
+			string = ""
 	#log protocol -> special comments
 	log = []
->>>>>>> 5115e5f23d16a9765c9ae919d8f02959ec1fa5c3
 
 	final.append(string)
 	with open("transcript.txt", 'w') as f:
@@ -51,6 +36,7 @@ log = []
 			if(i % 2 == 1):
 				final[i] = "\nPatient: " + final[i]
 				f.write(final[i])
+				
 		#log(special comments) at end
 		f.write('\nLOG')
 		f.write('\n___________')
