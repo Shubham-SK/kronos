@@ -74,5 +74,7 @@ def transcript_gen(conversation_array):
 	return (bloodpres, heartrate)
 
 # Testing
-print(transcript_gen(conversation_array))
+def main():
+	logs = transcript_gen(conversation_array)
+	return logs
 # transcript_gen([['log', 0], ['blood', 0], ['pressure', 0 ], ['80', 0]])
