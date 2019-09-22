@@ -11,7 +11,6 @@ def stop():
 
 @app.route('/start')
 def start():
-#    os.system("python mqtt.py")
     os.system("python stopublish.py")
     return render_template("START.html")
     
