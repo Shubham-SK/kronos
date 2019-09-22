@@ -33,6 +33,8 @@ def speech2text(local_file_path):
     operation = client.long_running_recognize(config, audio)
     response = operation.result()
 
+    script = []
+
     for (idx, result) in enumerate(response.results):
         # Skipping first epoch
         if idx == 0:
@@ -43,7 +45,10 @@ def speech2text(local_file_path):
         print(u"Transcript: {}".format(alternative.transcript))
         # Print the speaker_tag of each word
         for word in alternative.words:
-            print(u"Word: {}".format(word.word))
-            print(u"Speaker tag: {}".format(word.speaker_tag))
+            # print(u"Word: {}".format(word.word))
+            # print(u"Speaker tag: {}".format(word.speaker_tag))
+            script.append([word.word, word.speaker_tag])
 
-speech2text("doctor.wav")
+    return script
+
+speech2text("speech.wav")
