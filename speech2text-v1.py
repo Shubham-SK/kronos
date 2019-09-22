@@ -45,4 +45,4 @@ def speech2text(file_name):
     text = "".join(response.results[0].alternatives[0].transcript).split(' ')
     return(text)
 
-speech2text("speech.wav")
+print(speech2text("speech.wav"))
