@@ -18,6 +18,12 @@ def start():
 def blood_pres():
     return redirect("http://io.adafruit.com/vishakh_arora29/feeds/blood-pressure")
 
+@app.route('/transcript')
+def transcript():
+    os.system("python TranscriptGeneration/transcript_create.py")
+    fin = open("transcript.txt","r")
+    return fin.read()
+
 @app.route('/heart-rate')
 def heart_rate():
     return redirect("http://io.adafruit.com/vishakh_arora29/feeds/heart-rate")
