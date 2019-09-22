@@ -6,7 +6,6 @@ def speech2text(local_file_path):
     """
     Convert speech to text and identifies different speakers
     ________________________________
-
     Args: local_file_path Path to local audio file, e.g. /path/audio.wav
     Returns: dictionary of words and speaker
     """
@@ -33,8 +32,8 @@ def speech2text(local_file_path):
 
     operation = client.long_running_recognize(config, audio)
 
-    print(u"Waiting for operation to complete...")
     response = operation.result()
+    print(len(response.results))
 
     for result in response.results:
         # First alternative has words tagged with speakers
@@ -45,4 +44,4 @@ def speech2text(local_file_path):
             print(u"Word: {}".format(word.word))
             print(u"Speaker tag: {}".format(word.speaker_tag))
 
-sample_long_running_recognize("speech.wav")
+speech2text("speech.wav")
