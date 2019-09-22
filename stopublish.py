@@ -45,4 +45,4 @@ print("connecting")
 client.connect("10.1.221.36")
 print("connected")
 
-client.publish('/omnihacks/record/9', 'start')
+client.publish('/omnihacks/record/9', 'stop')
