@@ -25,6 +25,7 @@ def transcript_gen(convarr):
 
 	final.append(string)
 	with open("transcript.txt", 'w') as f:
+		#creating transcript
 		f.write('TRANSCRIPT')
 		f.write('\n___________')
 		for i in range(len(final)):
@@ -36,6 +37,7 @@ def transcript_gen(convarr):
 			if(i % 2 == 1):
 				final[i] = "\nPatient: " + final[i]
 				f.write(final[i])
+		#log(special comments) at end
 		f.write('\nLOG')
 		f.write('\n___________')
 		for i in range(len(log)):
