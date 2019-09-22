@@ -45,4 +45,6 @@ Paper References:
 We used bootstrap to construct a minimalist UI that may lack the striking looks, but does not cut a corner in functionality. We were able to accomplish everything we planned on with the webapp we created. It includes all the features required to successfully deploy in a hospital.
 
 Screenshots of the application below:
-<img style = "text-align: center" src="img.png" alt="Figure 1: Webapp Dashboard Screenshot"/>
+<img style = "text-align: center" src="assets/img.png" alt="Figure 1: Webapp Dashboard Screenshot"/>
+<img style = "text-align: center" src="assets/img1.png" alt="Figure 2: Graph 1"/>
+<img style = "text-align: center" src="assets/img2.png" alt="Figure 3: Graph 2"/>
