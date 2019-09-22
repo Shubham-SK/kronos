@@ -50,5 +50,3 @@ def speech2text(local_file_path):
             script.append([word.word, word.speaker_tag])
 
     return script
-
-speech2text("speech.wav")
