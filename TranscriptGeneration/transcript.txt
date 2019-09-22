@@ -1,6 +1,6 @@
 TRANSCRIPT
 ___________
-Doctor: I'm prescribing 10 mg of alendronate and 5 mg of acetaminophen
-Patient:  that should work
+Doctor: testing testing
+Patient:  11 12
 LOG
 ___________

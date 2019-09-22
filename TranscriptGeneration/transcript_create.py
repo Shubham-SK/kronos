@@ -1,8 +1,11 @@
 # Importing speech2text from prev definition
 from speech2textv2 import speech2text
+import os
 
-conversation_array = speech2text("speech.wav") # testing with doctor.wav
-print(conversation_array)
+speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos", "new_doctor.wav")
+
+conversation_array = speech2text(speech) # testing with doctor.wav
+# print(conversation_array)
 
 # Generating Transcript + Finding Key Words
 def transcript_gen(conversation_array):
@@ -71,6 +74,8 @@ def transcript_gen(conversation_array):
 		for i in range(len(log)):
 			f.write(log[i] + "\n")
 
+	f.close()
+
 	return (bloodpres, heartrate)
 
 # Testing
@@ -78,3 +83,4 @@ def main():
 	logs = transcript_gen(conversation_array)
 	return logs
 # transcript_gen([['log', 0], ['blood', 0], ['pressure', 0 ], ['80', 0]])
+main()
