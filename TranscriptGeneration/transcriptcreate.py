@@ -1,21 +1,26 @@
 # Importing speech2text from prev definition
 from .speech2textv2 import speech2text
 import os
-
-print("converting to transcript")
-speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos/TreeOverAte", "new_doctor.wav")
-
-conversation_array = speech2text(speech) # testing with doctor.wav
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+ # testing with doctor.wav
 # print(conversation_array)
 
 # Generating Transcript + Finding Key Words
-def transcript_gen(conversation_array):
+def transcript_gen():
 	"""
 	Void function that creates Transcript File
 	________________________________
 	Args: Conversation Array (2D ex: [["word", speaker_idx]])
 	Returns: transcripts.txt file, blood_pressure, heart_rate
 	"""
+
+	print("converting to transcript")
+	speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos/TreeOverAte", "new_doctor.wav")
+
+	conversation_array = speech2text(speech)
 
 	# Final Transcript Intialization
 	final = []
@@ -79,11 +84,50 @@ def transcript_gen(conversation_array):
 
 	metrics = [bloodpres, heartrate]
 	print(metrics)
-	# return metrics
+	return metrics
 
+
+
+pswd = open('pswd_IGNORE.txt','r')
+gmail_user = 'vishakh.arora29@gmail.com'
+gmail_psd = 'Chemisery01'
+#gmail_password = pswd.readline().strip()
+
+#send email to pharmacy
+def send_email():
+    #try:
+    server = smtplib.SMTP_SSL('smtp.gmail.com',465)
+    server.ehlo()
+    server.login(gmail_user, gmail_psd)#gmail_password)
+    #except Exception as e:
+    #    print(e)
+
+    sent_from = gmail_user
+    to = "kumar.shubham5504@gmail.com"
+    #name = i[1]+" "+i[2]
+    subject = "Prescription from Dr. Kavin"
+    #print(data)
+    #print(data[name])
+    body = 'Dear Pharmacist Shubham,\n\n'+'Please prepare (3 mg of Ibuprofen) for a patient of mine.\nThanks,\n'+'Dr. Kavin'
+    email_text = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (sent_from, ", ".join(to), subject, body)
+
+    try:
+        #msg = createMessage(subject, body)
+        server.sendmail(sent_from, to, email_text)
+        #print('Email sent!')
+    except Exception as e:
+        print(e)
+    server.close()
 # Testing
-def main():
-	logs = transcript_gen(conversation_array)
-	return logs
+
 # transcript_gen([['log', 0], ['blood', 0], ['pressure', 0 ], ['80', 0]])
-main()
+if __name__ == "__main__":
+	logs = transcript_gen()
+	send_email()
+	#print(logs)

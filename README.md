@@ -1,15 +1,23 @@
 # Kronos
 A voice powered healthcare app for Omnihacks 2019.
+
+
+### Problem we wish to solve
+Often, when one walks into a doctor, more time is spent documenting the visit rather than giving the patient quality care. In fact, about 6 hours in an 11 hour workday is spent entering information in the [Electronic Health Records](https://en.wikipedia.org/wiki/Electronic_health_record). This leads to increased burnouts in doctor, as reported in a study that found that more than half of all doctors report experiencing at least one symptom of burnout. To reduce stress as well as increase quality of patient care, the use of scribes has risen. However, there are not nearly enough scribes for all doctors, so they are forced to share their attention with both a computer and the patient. For a patient to have the best care possible, they need the complete attention of their doctor. Kronos aims to solve this problem
+
+### Solution
+Instead of having a scribe, the doctor can transcribe their speech into a text document using Kronos. It will then use text analysis to summarize the visit, sorting the contents into prescriptions, procedures, etc.
+
 ___
 ### Usage
-Clone the repository, navigate to the server.py file. 
+Clone the repository, navigate to the server.py file.
 
 ```
 git clone https://github.com/Shubham-SK/TreeOverAte.git
 cd TreeOverAte
 ```
 
-Ensure [Flask](https://pypi.org/project/Flask/) is installed and run the server. It should be open [here](127.0.0.1/5000). 
+Ensure [Flask](https://pypi.org/project/Flask/) is installed and run the server. It should be open [here](127.0.0.1/5000).
 
 ```
 python server.py

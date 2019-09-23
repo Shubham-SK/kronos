@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect
 import os, subprocess, time
 import TranscriptGeneration.adafruitmetrics as adafruit
-import TranscriptGeneration.transcriptcreate as transcript
+from TranscriptGeneration.transcriptcreate import transcript_gen,send_email
 
 app = Flask(__name__)
 
@@ -17,27 +17,27 @@ def start():
     print("generating transcript")
     global blood_pressure, heart_rate
     # metrics = os.system("python TranscriptGeneration/transcript_create.py")
-    metrics = transcript.main()
+    time.sleep(15)
+    metrics = transcript_gen()
     print(type(metrics), len(metrics))
-    blood_pressure = metrics[0]
-    heart_rate = metrics[1]
+    blood_pressure = str(metrics[0])
+    heart_rate = str(metrics[1])
     print("done generating transcript")
+    print("sending email")
+    send_email()
+    print("sent email")
     return render_template("START.html")
 
-@app.route('/blood-pres')
-def blood_pres():
-    adafruit.blood_publish(blood_pressure)
-    return redirect("http://io.adafruit.com/vishakh_arora29/feeds/blood-pressure")
+@app.route('/metrics')
+def metrics():
+    #adafruit.main(0, blood_pressure)
+    return redirect("https://io.adafruit.com/vishakh_arora29/dashboards/omnihacks-metrics")
 
 @app.route('/transcript')
 def transcript():
     fin = open("transcript.txt","r")
     return fin.read()
 
-@app.route('/heart-rate')
-def heart_rate():
-    adafruit.heart_publish(heart_rate)
-    return redirect("http://io.adafruit.com/vishakh_arora29/feeds/heart-rate")
 
 @app.route('/')
 def index():
