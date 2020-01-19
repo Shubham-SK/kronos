@@ -44,7 +44,7 @@ def stop_record_audio():
     f_kill.terminate()
 
 def publish_audio():
-    f = open("doctor.wav","rb")
+    f = open("/home/pi/doctor1.wav","rb")
     audio = f.read()
     f.close()
     audio_actual = bytearray(audio)
@@ -67,7 +67,7 @@ if len(sys.argv) > 1 and sys.argv[1] == '-d':
 client = mqtt.Client()
 
 print("connecting")
-client.connect("10.1.221.36")
+client.connect("mqtt.eclipse.org")
 print("connected")
 client.on_connect = on_connect
 client.on_message = on_message
