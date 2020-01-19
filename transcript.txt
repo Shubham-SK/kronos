@@ -1,7 +1,6 @@
 TRANSCRIPT
 ___________
-Doctor: record 35 BPM for the heart data and record 3 mm per Mercury for blood pressure so once the doctor is done with that they can simply
-Patient:  prescribed 3 mg of ibuprofen record 35 BPM for the heart data and record 3 mm per Mercury for blood pressure so
-Doctor:  the doctor is done with that they can simply
+Doctor: testing testing
+Patient:  2 3
 LOG
 ___________
