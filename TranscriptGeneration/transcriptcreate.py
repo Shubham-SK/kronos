@@ -18,7 +18,7 @@ def transcript_gen():
 	"""
 
 	print("converting to transcript")
-	speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos/TreeOverAte", "new_doctor.wav")
+	speech = os.path.join("/Users/shubhamkumar/Desktop/git-repos/kronos", "new_doctor.wav")
 
 	conversation_array = speech2text(speech)
 
@@ -88,9 +88,9 @@ def transcript_gen():
 
 
 
-pswd = open('pswd_IGNORE.txt','r')
-gmail_user = 'vishakh.arora29@gmail.com'
-gmail_psd = 'Chemisery01'
+pswd = open('pswd_IGNORE.txt','r').read().strip().split("\n")
+gmail_user = pswd[0]
+gmail_psd = pswd[1]
 #gmail_password = pswd.readline().strip()
 
 #send email to pharmacy

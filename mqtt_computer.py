@@ -38,7 +38,7 @@ def on_message(client, userdata, msg):
     f = open('new_doctor.wav', 'wb')
     f.write(msg.payload)
     f.close()
-#    os.system("afplay new_doctor.wav")
+    # os.system("afplay new_doctor.wav")
 
 if len(sys.argv) > 1 and sys.argv[1] == '-d':
     DEBUG = True
@@ -47,7 +47,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 print("connecting")
-client.connect("10.1.221.36")
+client.connect("mqtt.eclipse.org")
 print("connected")
 # GPIO.setmode(GPIO.BOARD)
 # GPIO.setwarnings(False)

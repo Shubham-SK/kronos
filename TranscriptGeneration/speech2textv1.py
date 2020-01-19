@@ -1,7 +1,6 @@
 # System
 import io
 import os
-import csv
 
 # Imports the Google Cloud client library
 from google.cloud import speech
@@ -36,11 +35,13 @@ def speech2text(file_name):
         language_code='en-US')
     # Detects speech in the audio file
     response = client.recognize(config, audio)
-
     # Testing print
     # for result in response.results:
-        # print('Transcript: {}'.format(result.alternatives[0].transcript))
+    # print('Transcript: {}'.format(result.alternatives[0].transcript))
 
     # Prepares the text as an array of words
-    text = "".join(response.results[0].alternatives[0].transcript).split(' ')
-    return text
+    # text = "".join(response.results[0].alternatives[0].transcript).split(' ')
+    return response.results
+
+
+# print(speech2text("doc.wav"))

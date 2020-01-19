@@ -42,7 +42,7 @@ client.on_connect = on_connect
 #client.on_message = on_message
 
 print("connecting")
-client.connect("10.1.221.36")
+client.connect("mqtt.eclipse.org")
 print("connected")
 
 client.publish('/omnihacks/record/9', 'start')
