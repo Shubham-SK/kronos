@@ -1,5 +1,5 @@
 # Kronos
-A voice powered healthcare app for Omnihacks 2019.
+A voice powered healthcare app.
 
 _created by: Vishakh Arora, Shubham Kumar, Shlok Mehrotra, and Pranav Srisankar_
 
