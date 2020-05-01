@@ -15,8 +15,8 @@ ___
 Clone the repository, navigate to the server.py file.
 
 ```
-git clone https://github.com/Shubham-SK/TreeOverAte.git
-cd TreeOverAte
+git clone https://github.com/Shubham-SK/kronos.git
+cd kronos
 ```
 
 Ensure [Flask](https://pypi.org/project/Flask/) is installed and run the server. It should be open [here](127.0.0.1/5000).
