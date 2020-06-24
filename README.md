@@ -3,7 +3,7 @@ A voice powered healthcare app.
 
 _created by: Vishakh Arora, Shubham Kumar, Shlok Mehrotra, and Pranav Srisankar_
 
-
+___
 ### Problem we wish to solve
 Often, when one walks into a doctor, more time is spent documenting the visit rather than giving the patient quality care. In fact, about 6 hours in an 11 hour workday is spent entering information in the [Electronic Health Records](https://en.wikipedia.org/wiki/Electronic_health_record). This leads to increased burnouts in doctor, as reported in a study that found that more than half of all doctors report experiencing at least one symptom of burnout. To reduce stress as well as increase quality of patient care, the use of scribes has risen. However, there are not nearly enough scribes for all doctors, so they are forced to share their attention with both a computer and the patient. For a patient to have the best care possible, they need the complete attention of their doctor. Kronos aims to solve this problem
 
